@@ -16,6 +16,8 @@ conexoes = []
 mensagens = []
 estados_leds = ["0","0"]
 
+clock = time.time()
+
 def enviar_estados(conexao):
     #Essa função manda a mensagem i da lista mensagens para uma conexao
     print(f"[ENVIANDO] Enviando mensagens para {conexao['addr']}")
@@ -64,5 +66,12 @@ def start():
         thread.start()
         thread.join()
         print("[ENVIADO]")
+        if time.time()-clock>2.0:
+            clock = time.time()
+            f = open('estados.txt', 'r')
+            for l in f:
+                estados = l.split(';')
+            f.close()
+
 
 start()

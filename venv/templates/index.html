@@ -20,18 +20,19 @@
             <th scope="col">ON/OFF</th>
           </tr>
         </thead>
-        <form action="">
         <tbody>
           <tr>
             <th scope="row">1</th>
             <td>LED 1</td>
             <td>
                 <div class="btn-group" role="group" aria-label="botao ligacao led 1">
-                    <input type="radio" class="btn-check" name="onoff1" id="on1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="on1">ON</label>
-                  
-                    <input type="radio" class="btn-check" name="onoff1" id="off1" autocomplete="off" checked>
-                    <label class="btn btn-outline-primary" for="off1">OFF</label>
+
+                  <form action="/ligarled1" method="POST">
+                  <input type="submit" value = "ON">
+                  </form>
+                  <form action="/desligarled1" method="POST">
+                  <input type="submit" value = "OFF">
+                  </form>
                 </div>
             </td>
           </tr>
@@ -40,17 +41,20 @@
             <td>LED 2</td>
             <td> 
                 <div class="btn-group" role="group" aria-label="botao ligacao led 2">
-                    <input type="radio" class="btn-check" name="onoff2" id="on2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="on2">ON</label>
-                  
-                    <input type="radio" class="btn-check" name="onoff2" id="off2" autocomplete="off" checked>
-                    <label class="btn btn-outline-primary" for="off2">OFF</label>
+
+                  <form action="/ligarled2" method="POST">
+                  <input type="submit" value = "ON">
+                  </form>
+                  <form action="/desligarled2" method="POST">
+                  <input type="submit" value = "OFF">
+                  </form>
                 </div>
             </td>
           </tr>
         </tbody>
-      </form>
     </table>
 
+  
   </body>
+  <script></script>
 </html>
