@@ -15,7 +15,6 @@ server.bind(ADDR)
 conexoes = []
 mensagens = []
 estados_leds = ["0","0"]
-
 clock = time.time()
 
 def enviar_estados(conexao):
@@ -57,6 +56,8 @@ def handle_clientes(conn, addr):
 
 
 def start():
+    global clock
+    global estados_leds
     #abre o server e establece a conexão como thread
     print("[INICIANDO] Iniciando Socket")
     server.listen()    
@@ -66,11 +67,11 @@ def start():
         thread.start()
         thread.join()
         print("[ENVIADO]")
-        if time.time()-clock>2.0:
+        if time.time()-clock>0.5:
             clock = time.time()
             f = open('estados.txt', 'r')
             for l in f:
-                estados = l.split(';')
+                estados_leds = l.split(';')
             f.close()
 
 
